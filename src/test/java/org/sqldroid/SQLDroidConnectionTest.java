@@ -1,7 +1,7 @@
 package org.sqldroid;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
 
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.Test;
@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 16)
+@Config(sdk = 19)
 public class SQLDroidConnectionTest {
 
     @Test

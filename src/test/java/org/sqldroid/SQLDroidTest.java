@@ -1,6 +1,6 @@
 package org.sqldroid;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.assertThat;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -28,7 +28,7 @@ import java.util.UUID;
 import junit.framework.AssertionFailedError;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 16)
+@Config(sdk = 19)
 public class SQLDroidTest {
 
     // TODO: This should be /data/data/org.sqldroid/databases/ if running on device

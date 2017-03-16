@@ -26,7 +26,7 @@ import org.robolectric.annotation.Config;
 
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 16)
+@Config(sdk = 19)
 public class DriverUnitTest {
 
   /** Going to use SQLDroid JDBC Driver */
