@@ -76,9 +76,6 @@ public class SQLDroidDriver implements java.sql.Driver {
 
     @Override
     public DriverPropertyInfo[] getPropertyInfo(String url, Properties info) throws SQLException {
-        // TODO Evaluate if implementation is sufficient (if so, delete comment and log)
-        Log.e(" ********************* not implemented @ " + DebugPrinter.getFileName() + " line "
-                + DebugPrinter.getLineNumber());
         return new DriverPropertyInfo[0];
     }
 

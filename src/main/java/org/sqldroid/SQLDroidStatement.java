@@ -57,8 +57,6 @@ public class SQLDroidStatement implements Statement {
 
   @Override
   public void clearWarnings() throws SQLException {
-    // TODO Evaluate if the implementation is sufficient (if so, delete comment and log)
-    Log.e(" ********************* not implemented @ " + DebugPrinter.getFileName() + " line " + DebugPrinter.getLineNumber());
   }
 
   @Override
@@ -78,11 +76,12 @@ public class SQLDroidStatement implements Statement {
     }
   }
 
-  @Override
+
   /** Execute the SQL statement.
    * @return false if there are no result (if the request was not a select or similar).  True if a
    * result set is available.  This meets the requirement of java.sql.Statement.
    */
+  @Override
   public boolean execute(String sql) throws SQLException {
     updateCount = -1;  // default outcome.  If the sql is a query or any other sql fails.
     closeResultSet();
@@ -196,8 +195,6 @@ public class SQLDroidStatement implements Statement {
   public int getMaxRows() throws SQLException {
     // TODO: return rs.getMaxRows()
     // TODO: Avoid NPE for rs
-    Log.e(" ********************* not implemented @ " + DebugPrinter.getFileName() + " line "
-        + DebugPrinter.getLineNumber());
     return 0;
   }
 
@@ -253,9 +250,6 @@ public class SQLDroidStatement implements Statement {
 
   @Override
   public SQLWarning getWarnings() throws SQLException {
-    // TODO Evaluate if the implementation is sufficient (if so, delete comment and log)
-    Log.e(" ********************* not implemented @ " + DebugPrinter.getFileName() + " line "
-        + DebugPrinter.getLineNumber());
     return null;
   }
 

@@ -292,9 +292,11 @@ public class SQLDroidConnection implements Connection {
 
     @Override
     public SQLWarning getWarnings() throws SQLException {
-        // TODO: Is this a sufficient implementation? (If so, delete comment and logging)
-        Log.e(" ********************* not implemented @ " + DebugPrinter.getFileName() + " line "
-                + DebugPrinter.getLineNumber());
+        if (isClosed())
+        {
+            throw new SQLException("Can not get warnings on a closed connection");
+        }
+        //TODO: not implemented
         return null;
     }
 
