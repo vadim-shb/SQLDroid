@@ -9,11 +9,23 @@ SQLDroid lets you access your app's database through JDBC. Android ships with th
 ## Notes about my fork
 
 The developer of the original [SQLDroid](https://github.com/SQLDroid/SQLDroid) library is very inactive. So I started looking into it, but I personally do not like his usage of ruby tools for building an android library.
-So I started this fork and first moved to gradle as build tool. Also is stripped out the feature of building a SQLDroid version for non android projects.
+So I started this fork and first moved to gradle as build tool. I stripped out the feature of building a SQLDroid version for non android projects and dropped support for the roboto version.
 
 ## Download
 
-The first version 1.1.0 of my SQLDroid fork will soon be published.
+The first version 1.1.0 of my SQLDroid fork will soon be published. A snapshot of my current work is already available:
+
+```groovy
+repositories {
+    maven {
+        url 'https://maven.jsone-studios.de/repository'
+    }
+}
+
+dependencies {
+    compile 'jsone_studios.sqldroid:sqldroid:1.1.0-SNAPSHOT'
+}
+```
 
 ## Usage
 
