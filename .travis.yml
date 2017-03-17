@@ -1,5 +1,14 @@
 language: android
+android:
+  components:
+    - tools
+    - build-tools-25.0.2
+    - android-25
 jdk:
-  - oraclejdk7
-script:
-  - gradle clean test
+  - oraclejdk8
+before_install:
+  - chmod +x gradlew
+licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
