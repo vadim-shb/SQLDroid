@@ -248,20 +248,16 @@ public class SQLDroidResultSet implements ResultSet {
     return getByte(index);
   }
 
-    @Override
-    public byte[] getBytes(int index) throws SQLException {
-        try {
-            lastColumnRead = index;
-            byte [] bytes = c.getBlob(ci(index));
-            // SQLite includes the zero-byte at the end for Strings.
-            if (SQLDroidResultSetMetaData.getType(c, ci(index)) == 3) { //  Cursor.FIELD_TYPE_STRING
-		        bytes = Arrays.copyOf(bytes, bytes.length - 1);
-            }
-            return bytes;
-        } catch (android.database.SQLException e) {
-            throw SQLDroidConnection.chainException(e);
-        }
+  @Override
+  public byte[] getBytes(int index) throws SQLException {
+    try {
+      lastColumnRead = index;
+      int columnIndex = ci(index);
+      return c.getBlob(columnIndex);
+    } catch (android.database.SQLException e) {
+      throw SQLDroidConnection.chainException(e);
     }
+  }
 
   @Override
   public byte[] getBytes(String columnName) throws SQLException {
