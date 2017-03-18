@@ -380,9 +380,8 @@ public class SQLDroidDatabaseMetaData implements DatabaseMetaData {
 
 	@Override
 	public String getURL() {
-		System.err.println(" ********************* not implemented @ "
-				+ DebugPrinter.getFileName() + " line "
-				+ DebugPrinter.getLineNumber());
+        //TODO: not implemented
+		Log.i("Using not implemented method SQLDroidDatabaseMetaData.getURL()");
 		return null;
 	}
 
@@ -1657,80 +1656,69 @@ public class SQLDroidDatabaseMetaData implements DatabaseMetaData {
 
 	@Override
 	public <T> T unwrap(Class<T> iface) throws SQLException {
-		System.err.println(" ********************* not implemented @ "
-				+ DebugPrinter.getFileName() + " line "
-				+ DebugPrinter.getLineNumber());
+        //TODO: not implemented
+        Log.i("Using not implemented method SQLDroidDatabaseMetaData.unwrap()");
 		return null;
 	}
 
 	@Override
 	public boolean isWrapperFor(Class<?> iface) throws SQLException {
-		System.err.println(" ********************* not implemented @ "
-				+ DebugPrinter.getFileName() + " line "
-				+ DebugPrinter.getLineNumber());
+        //TODO: not implemented
+        Log.i("Using not implemented method SQLDroidDatabaseMetaData.isWrapperFor()");
 		return false;
 	}
 
 	@Override
 	public RowIdLifetime getRowIdLifetime() throws SQLException {
-		System.err.println(" ********************* not implemented @ "
-				+ DebugPrinter.getFileName() + " line "
-				+ DebugPrinter.getLineNumber());
+        //TODO: not implemented
+        Log.i("Using not implemented method SQLDroidDatabaseMetaData.getRowIdLifetime()");
 		return null;
 	}
 
 	@Override
-	public ResultSet getSchemas(String catalog, String schemaPattern)
-			throws SQLException {
-		System.err.println(" ********************* not implemented @ "
-				+ DebugPrinter.getFileName() + " line "
-				+ DebugPrinter.getLineNumber());
+	public ResultSet getSchemas(String catalog, String schemaPattern) throws SQLException {
+        //TODO: not implemented
+        Log.i("Using not implemented method SQLDroidDatabaseMetaData.getSchemas()");
 		return null;
 	}
 
 	@Override
 	public boolean supportsStoredFunctionsUsingCallSyntax() throws SQLException {
-		System.err.println(" ********************* not implemented @ "
-				+ DebugPrinter.getFileName() + " line "
-				+ DebugPrinter.getLineNumber());
+        //TODO: not implemented
+        Log.i("Using not implemented method SQLDroidDatabaseMetaData.supportsStoredFunctionsUsingCallSyntax()");
 		return false;
 	}
 
 	@Override
 	public boolean autoCommitFailureClosesAllResultSets() throws SQLException {
-		System.err.println(" ********************* not implemented @ "
-				+ DebugPrinter.getFileName() + " line "
-				+ DebugPrinter.getLineNumber());
+        //TODO: not implemented
+        Log.i("Using not implemented method SQLDroidDatabaseMetaData.autoCommitFailureClosesAllResultSets()");
 		return false;
 	}
 
 	@Override
 	public ResultSet getClientInfoProperties() throws SQLException {
-		System.err.println(" ********************* not implemented @ "
-				+ DebugPrinter.getFileName() + " line "
-				+ DebugPrinter.getLineNumber());
+        //TODO: not implemented
+        Log.i("Using not implemented method SQLDroidDatabaseMetaData.getClientInfoProperties()");
 		return null;
 	}
 
 	@Override
 	public ResultSet getFunctions(String catalog, String schemaPattern, String functionNamePattern) throws SQLException {
-		System.err.println(" ********************* not implemented @ "
-				+ DebugPrinter.getFileName() + " line "
-				+ DebugPrinter.getLineNumber());
+        //TODO: not implemented
+        Log.i("Using not implemented method SQLDroidDatabaseMetaData.getFunctions()");
 		return null;
 	}
 
 	public ResultSet getPseudoColumns(String catalog, String schemaPattern, String tableNamePattern, String columnNamePattern) throws SQLException {
-		System.err.println(" ********************* not implemented @ "
-				+ DebugPrinter.getFileName() + " line "
-				+ DebugPrinter.getLineNumber());
+        //TODO: not implemented
+        Log.i("Using not implemented method SQLDroidDatabaseMetaData.getPseudoColumns()");
 		return null;
 	}
 
 	public boolean generatedKeyAlwaysReturned() throws SQLException {
-		System.err.println(" ********************* not implemented @ "
-				+ DebugPrinter.getFileName() + " line "
-				+ DebugPrinter.getLineNumber());
+        //TODO: not implemented
+        Log.i("Using not implemented method SQLDroidDatabaseMetaData.generatedKeyAlwaysReturned()");
 		return false;
 	}
 }

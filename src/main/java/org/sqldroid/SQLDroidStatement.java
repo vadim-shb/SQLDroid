@@ -250,6 +250,8 @@ public class SQLDroidStatement implements Statement {
 
   @Override
   public SQLWarning getWarnings() throws SQLException {
+    //TODO: not implemented
+    Log.i("Using not correct implemented method SQLDroidStatement.getWarnings()");
     return null;
   }
 

@@ -607,8 +607,8 @@ public class SQLDroidResultSet implements ResultSet {
 
   @Override
   public Timestamp getTimestamp(int colID, Calendar cal) throws SQLException {
-    // TODO Implement with Calendar
-    Log.e(" ********************* SQLDroidResultSet.getTimestamp(int, Calendar) not implemented correctly - Calendar is ignored.");
+    //TODO: not implemented
+    Log.i("Using not correct implemented method SQLDroidResultSet.getTimestamp()");
     return getTimestamp(colID);
   }
 
@@ -651,8 +651,9 @@ public class SQLDroidResultSet implements ResultSet {
 
   @Override
   public SQLWarning getWarnings() throws SQLException {
-    // TODO: It may be that this is better implemented as "return null"
-    throw new UnsupportedOperationException("ResultSet.getWarnings not implemented yet");
+    //TODO: not implemented
+    Log.i("Using not correct implemented method SQLDroidResultSet.getWarnings()");
+    return null;
   }
 
   @Override

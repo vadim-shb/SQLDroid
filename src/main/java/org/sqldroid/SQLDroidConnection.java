@@ -297,6 +297,7 @@ public class SQLDroidConnection implements Connection {
             throw new SQLException("Can not get warnings on a closed connection");
         }
         //TODO: not implemented
+        Log.i("Using not implemented method SQLDroidConnection.getWarnings()");
         return null;
     }
 
