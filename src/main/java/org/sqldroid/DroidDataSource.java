@@ -12,30 +12,29 @@ import java.util.logging.Logger;
 import javax.sql.DataSource;
 
 public class DroidDataSource implements DataSource {
-    Connection connection = null;    
+    Connection connection = null;
     protected String description = "Android Sqlite Data Source";
     protected String packageName;
-    protected String databaseName;  
+    protected String databaseName;
 
     public DroidDataSource() {
 
-    }        
-        
-    public DroidDataSource(String packageName, String databaseName) {
-      	setPackageName(packageName);
-       	setDatabaseName(databaseName);
     }
-        
+
+    public DroidDataSource(String packageName, String databaseName) {
+        setPackageName(packageName);
+        setDatabaseName(databaseName);
+    }
+
     @Override
     public Connection getConnection() throws SQLException {
-      	String url = "jdbc:sqldroid:" + "/data/data/" + packageName + "/" + databaseName + ".db";
-        connection = new org.sqldroid.SQLDroidDriver().connect(url , new Properties());
+        String url = "jdbc:sqldroid:" + "/data/data/" + packageName + "/" + databaseName + ".db";
+        connection = new org.sqldroid.SQLDroidDriver().connect(url, new Properties());
         return connection;
     }
 
     @Override
-    public Connection getConnection(String username, String password)
-    			throws SQLException {
+    public Connection getConnection(String username, String password) throws SQLException {
         return getConnection();
     }
 
@@ -69,7 +68,7 @@ public class DroidDataSource implements DataSource {
     }
 
     public String getDescription() {
-      	return description;
+        return description;
     }
 
     public void setDescription(String desc) {
@@ -77,36 +76,36 @@ public class DroidDataSource implements DataSource {
     }
 
     public String getPackageName() {
-     	return packageName;
+        return packageName;
     }
 
     public void setPackageName(String packageName) {
-     	this.packageName = packageName;
-    }                
+        this.packageName = packageName;
+    }
 
     public String getDatabaseName() {
-    	return databaseName;
+        return databaseName;
     }
 
     public void setDatabaseName(String databaseName) {
-     	this.databaseName = databaseName;
-    }             
-        
-    @Override
-    public boolean isWrapperFor(Class<?> iface) throws SQLException {
-      return iface != null && iface.isAssignableFrom(getClass());
+        this.databaseName = databaseName;
     }
 
     @Override
-    public  <T> T unwrap(Class<T> iface) throws SQLException {
-      if (isWrapperFor(iface)) {
-        return (T) this;
-      }
-      throw new SQLException(getClass() + " does not wrap " + iface);
+    public boolean isWrapperFor(Class<?> iface) throws SQLException {
+        return iface != null && iface.isAssignableFrom(getClass());
     }
-        
+
+    @Override
+    public <T> T unwrap(Class<T> iface) throws SQLException {
+        if (isWrapperFor(iface)) {
+            return (T) this;
+        }
+        throw new SQLException(getClass() + " does not wrap " + iface);
+    }
+
     public Logger getParentLogger() throws SQLFeatureNotSupportedException {
-      	return null;
+        return null;
     }
-        
+
 }

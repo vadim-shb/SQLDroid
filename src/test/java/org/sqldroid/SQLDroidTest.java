@@ -1,10 +1,9 @@
 package org.sqldroid;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import junit.framework.AssertionFailedError;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
@@ -28,13 +27,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-import junit.framework.AssertionFailedError;
+import static org.assertj.core.api.Java6Assertions.assertThat;
 
 
 /**
  * This is a refactoring is SQLDroidTest that shares quite a bit of common code between test methods.
  * I'm not sure which approach reads the best.
- * 
+ *
  * @author Johannes Brodwall <johannes@brodwall.com>
  */
 @RunWith(RobolectricTestRunner.class)
@@ -113,14 +112,14 @@ public class SQLDroidTest {
                 assertThat(d)
                         .isEqualTo(rs.getDouble(8)).isEqualTo(rs.getDouble("aDouble"))
                         .isEqualTo((double) (Float) rs.getObject(8)); // Is this
-                                                                      // intended?
+                // intended?
                 assertThat(text)
                         .isEqualTo(rs.getString(9)).isEqualTo(rs.getString("aText"))
                         .isEqualTo(rs.getObject(9)).isEqualTo(rs.getObject("aText"));
             }
         }
     }
-    
+
     @Test
     public void shouldRetrieveInsertedBigDecimals() throws SQLException {
         String createTableStatement = "CREATE TABLE bdTable (id int, aBigDecimal numeric)";
@@ -226,15 +225,15 @@ public class SQLDroidTest {
                 Blob blob = rs.getBlob(1);
                 assertThat(blob.length()).isEqualTo(byteArray.length);
                 assertThat(blob.getBytes(0, byteArray.length)).isEqualTo(byteArray);
-                assertThat(blob.getBytes(1, byteArray.length-2))
-                  .hasSize(byteArray.length-2)
-                  .startsWith(byteArray[1])
-                  .endsWith(byteArray[byteArray.length-2]);
-                assertThat(byteArray).containsSubsequence(blob.getBytes(1, byteArray.length-2));
-                
-                Blob blobAsObj = (Blob)rs.getObject(1);
-                assertThat(blobAsObj.getBytes(0, (int)blobAsObj.length()))
-                  .isEqualTo(byteArray);
+                assertThat(blob.getBytes(1, byteArray.length - 2))
+                        .hasSize(byteArray.length - 2)
+                        .startsWith(byteArray[1])
+                        .endsWith(byteArray[byteArray.length - 2]);
+                assertThat(byteArray).containsSubsequence(blob.getBytes(1, byteArray.length - 2));
+
+                Blob blobAsObj = (Blob) rs.getObject(1);
+                assertThat(blobAsObj.getBytes(0, (int) blobAsObj.length()))
+                        .isEqualTo(byteArray);
             }
         }
     }
@@ -242,21 +241,21 @@ public class SQLDroidTest {
     @Test
     public void shouldRetrieveSavedStringAsBlob() throws SQLException {
         conn.createStatement().execute("CREATE TABLE stringblobtest (value TEXT)");
-        
+
         String s = "a random test string";
         byte[] byteArray = s.getBytes();
-  
+
         try (PreparedStatement stmt = conn.prepareStatement("INSERT INTO stringblobtest (value) VALUES (?)")) {
             stmt.setString(1, s);
             stmt.executeUpdate();
         }
-        
+
         try (PreparedStatement stmt = conn.prepareStatement("SELECT value FROM stringblobtest")) {
             try (ResultSet rs = stmt.executeQuery()) {
                 rs.next();
                 Blob blob = rs.getBlob(1);
                 assertThat(blob.getBytes(0, (int) blob.length()))
-                  .isEqualTo(byteArray);
+                        .isEqualTo(byteArray);
             }
         }
     }
@@ -281,7 +280,7 @@ public class SQLDroidTest {
     @Test
     public void shouldSaveAndRetrieveTimestamps() throws SQLException {
         conn.createStatement()
-            .execute("create table timestamptest (id integer primary key autoincrement, created_at timestamp)");
+                .execute("create table timestamptest (id integer primary key autoincrement, created_at timestamp)");
 
         Timestamp timestamp = new Timestamp(new GregorianCalendar(2016, 7, 15, 12, 0, 0).getTimeInMillis());
         long id = executeForGeneratedKey("insert into timestamptest (created_at) values (?)", timestamp);
@@ -322,7 +321,7 @@ public class SQLDroidTest {
             try (ResultSet rs = stmt.executeQuery()) {
                 rs.next();
                 assertThat(rs.getTimestamp("datetimecol").toString())
-                  .matches("20\\d\\d-\\d\\d-\\d\\d.*");
+                        .matches("20\\d\\d-\\d\\d-\\d\\d.*");
             }
         }
     }
@@ -330,7 +329,7 @@ public class SQLDroidTest {
     private long executeForGeneratedKey(String query, Object... parameters) throws SQLException {
         return executeForGeneratedKeyWithList(query, Arrays.asList(parameters));
     }
-    
+
     private long executeForGeneratedKeyWithList(String query, List<Object> parameters) throws SQLException {
         try (PreparedStatement stmt = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
             for (int i = 0; i < parameters.size(); i++) {
