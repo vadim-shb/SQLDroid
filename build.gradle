@@ -24,12 +24,12 @@ group = 'jsone_studios.sqldroid'
 version = '1.1.0-SNAPSHOT'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 21
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 25
+        minSdkVersion 16
+        targetSdkVersion 21
         versionCode 1
         versionName version
 
